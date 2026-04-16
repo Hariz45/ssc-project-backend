@@ -1,0 +1,28 @@
+const express=require("express")
+const dotenv=require("dotenv")
+const cors=require("cors")
+
+dotenv.config();
+
+
+
+const connectDB=require("./config/db");
+connectDB();
+
+const app=express()
+
+app.use(express.json())
+
+app.use(cors())
+
+app.use("/api/auth", require("./routes/authRoutes"));
+app.use("/api/menu", require("./routes/menuRoutes"));
+app.use("/api/order", require("./routes/orderRoutes"));
+
+app.get("/",(req,res)=>{
+    res.send("Api is Running")
+})
+
+app.listen(5000,()=>{
+    console.log("Server is running on port 5000")
+})
