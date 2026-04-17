@@ -21,8 +21,11 @@ router.post("/", auth, createOrder);
 router.get("/my", auth, getMyOrders);
 router.put("/cancel/:id", auth, cancelMyOrder);
 
+
 // admin
 router.get("/", auth, getAllOrders);
 router.put("/:id", auth, updateStatus);
+
+
 
 module.exports = router;

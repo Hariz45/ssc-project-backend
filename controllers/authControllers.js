@@ -18,7 +18,8 @@ exports.register = async (req,res) => {
         const user = await User.create({
             name,
             email,
-            password: hash
+            password: hash,
+            role:"user"
         })
         return res.json({ message: "User created successfully", user })
     } catch (error) {
